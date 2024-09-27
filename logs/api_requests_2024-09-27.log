@@ -1,0 +1,28 @@
+INFO:root: 2024-09-27 06:42:39.396198: Get item API called
+ERROR:root: context :{'request_url': '/api/inventory/items/2/', 'error': 'No Item matches the given query.', 'payload': {}}
+INFO:root:======================================================================================================================================================
+WARNING:django.request:Bad Request: /api/inventory/items/2/
+INFO:root: 2024-09-27 06:44:32.391019: Get item API called
+ERROR:root: context :{'request_url': '/api/inventory/items/2/', 'error': 'No Item matches the given query.', 'payload': {}}
+INFO:root:======================================================================================================================================================
+WARNING:django.request:Bad Request: /api/inventory/items/2/
+INFO:root: 2024-09-27 06:50:38.840625: Create item API called
+ERROR:root: context :{'request_url': '/api/inventory/items/', 'error': 'duplicate key value violates unique constraint "inventory_item_name_key"\nDETAIL:  Key (name)=(Item 1) already exists.\n', 'payload': {'name': 'Item 1', 'description': 'good product', 'quantity': 10}}
+INFO:root:======================================================================================================================================================
+WARNING:django.request:Bad Request: /api/inventory/items/
+ERROR:django.request:Internal Server Error: /api/inventory/items/1
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/inventory/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/inventory/lib/python3.12/site-packages/django/utils/deprecation.py", line 131, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/inventory/lib/python3.12/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/inventory/lib/python3.12/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via PUT, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PUT data. Change your form to point to 127.0.0.1:8002/api/inventory/items/1/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+WARNING:django.request:Bad Request: /api/inventory/items/1/
+INFO:django.utils.autoreload:/Users/naveen/Desktop/inventory_system/inventory/views.py changed, reloading.
